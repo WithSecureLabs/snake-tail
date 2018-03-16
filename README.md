@@ -7,7 +7,7 @@ The command line interface to Snake. If Web UIs and cURL are not your thing, the
 To install perform the following:
 
 ```bash
-pip3 install git+https://github.com/countercept/snake
+pip3 install git+https://github.com/countercept/snake-tail
 ```
 
 ## Usage
