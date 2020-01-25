@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name="snake-tail",
-    version="1.0",
+    version="1.0.1",
     packages=setuptools.find_packages(exclude=["tests"]),
     install_requires=[
         "clint",

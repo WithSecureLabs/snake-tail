@@ -29,7 +29,7 @@ def main():  # pylint: disable=too-many-locals, too-many-statements
     parser_command.add_argument('command', help='the command to execute on the sample')
     parser_command.add_argument('sha256_digest', help='the sha256 digest of the sample to execute the command on')
     parser_command.add_argument('--args', help='args for the command in json format (if supported)')
-    parser_command.add_argument('-a', '--async', action='store_true', help='queue the command for asynchronous execution')
+    parser_command.add_argument('-a', '--asynchronous', action='store_true', help='queue the command for asynchronous execution')
     parser_command.add_argument('-g', '--get', action='store_true', help='get an already executed command, rather than posting')
     parser_command.add_argument('-t', '--timeout', type=int, help='the maximum amount of time a command is allowed to execute for')
 
@@ -119,7 +119,7 @@ def main():  # pylint: disable=too-many-locals, too-many-statements
     if args.snake_command == 'command':
         command.command(args.scale, args.command, args.sha256_digest,
                         args=args.args,
-                        asynchronous=args.async,
+                        asynchronous=args.asynchronous,
                         get=args.get,
                         timeout=args.timeout,
                         json=args.json,
