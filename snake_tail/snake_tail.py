@@ -98,7 +98,8 @@ def main():  # pylint: disable=too-many-locals, too-many-statements
     parser_samples = subparsers.add_parser('store', help='get information about samples in snake')
     parser_samples.add_argument('-f', '--file-type', help='restrict results to a file type (file or memory)')
     parser_samples.add_argument('-l', '--limit', type=int, help='number of samples to retrieve')
-    parser_samples.add_argument('--filter', help='filter the results (e.g. {"name":"procdump"}')
+    parser_samples.add_argument('--filter', type=int, help='filter the results (e.g. {"name":"procdump"}')
+    parser_samples.add_argument('--from', help='offset to return samples from (default: 0)', dest="from_")
     parser_samples.add_argument('--operator', help='operator to apply to sort filters (default: and)')
     parser_samples.add_argument('--order', type=int, help='order to return the samples (default: -1 [descending])')
     parser_samples.add_argument('--sort', help='field to sort on (default: none)')
@@ -179,6 +180,7 @@ def main():  # pylint: disable=too-many-locals, too-many-statements
         store.samples(file_type=args.file_type,
                       limit=args.limit,
                       filter=args.filter,
+                      from_=args.from_,
                       operator=args.operator,
                       order=args.order,
                       sort=args.sort,

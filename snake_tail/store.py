@@ -5,11 +5,13 @@ import requests
 from snake_tail import SNAKE_URL
 
 
-def samples(file_type=None, limit=None, filter=None, operator=None, order=None, sort=None, json=False, verify=True):  # pylint: disable=redefined-builtin
+def samples(file_type=None, limit=None, filter=None, operator=None, order=None, sort=None, json=False, verify=True, from_=None):  # pylint: disable=redefined-builtin
     url = SNAKE_URL + "/store"
     args = []
     if file_type:
         args += ['file_type={}'.format(file_type)]
+    if from_:
+        args += ['from={}'.format(from_)]
     if limit:
         args += ['limit={}'.format(limit)]
     if filter:
